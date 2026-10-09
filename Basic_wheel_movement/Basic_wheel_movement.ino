@@ -8,22 +8,23 @@ int in4 = 9;
 
 
 void setmotor(int pwm, int in1,int in2, int speed){
-  if(speed>0){
-     analogWrite(pwm,speed);
-  digitalWrite(in1,HIGH);
-  digitalWrite(in2,LOW);
+  if(speed>0){ // when the in1 = high and in2 = low the wheel moves forward
+    analogWrite(pwm,speed);
+    digitalWrite(in1,HIGH);
+    digitalWrite(in2,LOW);
   }
 
-  else if(speed<0){
-  speed=-1*speed;
-        analogWrite(pwm,speed);
-  digitalWrite(in1,LOW);
-  digitalWrite(in2,HIGH);
+  else if(speed<0){ // when the in1 = low and in2 = high the wheel moves backward
+
+    speed=-1*speed;
+    analogWrite(pwm,speed);
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,HIGH);
   }
   else{
-          analogWrite(pwm,0);
-  digitalWrite(in1,LOW);
-  digitalWrite(in2,LOW);
+    analogWrite(pwm,0);
+    digitalWrite(in1,LOW);
+    digitalWrite(in2,LOW);
 
   }
 }
